@@ -1,6 +1,6 @@
 # FashionStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Projeto de uma loja feito no angular com hub de compra e adição de conteudo ao carrinho e, pagina de carrinho porém sem seção de finalização de compra e ida ao pagamento. 
 
 ## Development server
 
