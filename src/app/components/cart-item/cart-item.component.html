@@ -1,0 +1,72 @@
+<li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle dropdown-toggler"
+    href="#"
+    id="navbarDropdown3"
+    role="button"
+    data-bs-toggle="dropdown" aria-expanded="false">
+    <i
+      class="fa fa-cart-plus fs-5 me-1"
+      style="color: #202122;"
+    ></i>
+  </a>
+  <ul class="dropdown-menu menuOnLeft   rounded-0 mt-2" aria-labelledby="navbarDropdown3">
+      <li
+        class="p-2"
+
+        >
+          <div
+            class="d-flex w-100 border-bottom justify-content-evenly"
+            *ngFor="let item of cart.items"
+          >
+              <div>
+                  <img
+                    style="
+                    height: 70px !important;width: 60px !important;"
+                    class=" p-2"
+                    alt=""
+                    [src]="item.image"
+                  >
+              </div>
+
+              <div>
+                  <a href="#" class="text-decoration-none text-black cart-item-name ">
+                      <p class="m-0 p-0">
+                        {{item.name}}
+                      </p>
+                  </a>
+                  <p>
+                    {{item.quantity}} x
+                    <i class="fa-solid fa-xmark" style="color: #0d0d0d;">
+                    </i>
+                    ${{item.price}}
+                  </p>
+              </div>
+              <button
+                type="button"
+                class="btn fs-5 closeBtn">
+                  <i class="fa-solid fa-xmark"></i>
+              </button>
+          </div>
+      </li>
+      <li class="p-2">
+          <div class=" w-100 ">
+              <div class="d-flex justify-content-between">
+                  <h4 class="">SubTotal :</h4>
+                  <h4 style="font-weight: 700;">R${{round(getTotal(cart.items) , 2)}}</h4>
+              </div>
+              <div class="d-flex justify-content-evenly mt-2">
+                  <button
+                    class="btn btn-dark rounded-0 px-3"
+                    type="button"
+                    routerLink="cart"
+                  >
+                    View Cart
+                </button>
+                  <a href="checkout.html"> <button
+                          class="btn btn-danger rounded-0 px-3">Checkout</button></a>
+              </div>
+          </div>
+      </li>
+  </ul>
+</li>

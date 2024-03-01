@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="topbar-cart">
+    <h1>
+      <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+      Produto
+    </h1>
+    <button
+      (click)="onClearCart()"
+    >
+      <img
+        src="../../../assets/icons/delete_11042405.png"
+        alt=""
+
+      >
+      Remover todos os produtos
+    </button>
+  </div>
+
+  <div class="card-product"
+    *ngFor="let element of cart.items"
+    >
+    <div class="product-image">
+      <img
+        alt=""
+        [src]="element.image"
+      >
+    </div>
+
+        <div class="product-name">
+          <p>{{element.name}}</p>
+        </div>
+        <div class="product-info">
+          <div class="product-info-button">
+            <p>Quantidade</p>
+            <div class="d-flex mx-3 my-2">
+              <button
+               (click)="onRemoveQuatity(element)"
+              >-</button>
+              <p class="mx-3 my-0">{{element.quantity}}</p>
+              <button
+               (click)="onAddQuatity(element)"
+              >+</button>
+            </div>
+
+            <button
+              style="border: 1px solid gray; border-radius: 5px;"
+              type="button"
+              (click)="onRemoveFromCart(element)"
+              >
+              <img
+              src="../../../assets/icons/delete_11042405.png"
+              alt=""
+              >
+            Remove
+          </button>
+        </div>
+      </div>
+      <div class="product-price">
+        <p>Preço:</p>
+        <h4>R${{round((element.price * element.quantity), 2)}}</h4>
+      </div>
+  </div>
+
+  <div class="cart-final-price">
+      <div class="cart-total-price">
+        <h1>Total:</h1>
+        <h1><span>R${{round(getTotal(cart.items), 2)}}</span></h1>
+      </div>
+      <div class="extra-info">
+        <div class="d-flex justify-content-between">
+            <h4>Frete:</h4>
+            <h4><span>Grátis</span></h4>
+        </div>
+        <div
+        class="p-2"
+        style="background-color: rgb(223, 221, 221); border-radius: 6px;"
+        >
+          <div
+            class="d-flex  justify-content-between align-items-center"
+          >
+            <h4 class="mb-0">Total à prazo:</h4>
+            <h4 class="mb-0"><span>R${{round(getTotal(cart.items), 2)}}</span></h4>
+          </div>
+          <p>(em até 10x de R${{round((getTotal(cart.items)/10),2)}} sem juros)</p>
+        </div>
+        <div class="cart-cash-price">
+            <p>Valor à vista:</p>
+            <h1>R${{ round(angularMath.percentOfNumber(getTotal(cart.items), 75), 2)}}</h1>
+            <h4>(Economize: R${{round(angularMath.percentOfNumber(getTotal(cart.items), 25), 2)}})</h4>
+        </div>
+      </div>
+
+      <div class='final-price-interaction'>
+          <button
+              (click)="onCheckout()"
+              style="background-color: blue; color:white"
+            >Finalizar Compra</button>
+          <button
+            routerLink="/home"
+          >Continuar Comprando</button>
+      </div>
+  </div>
+</div>

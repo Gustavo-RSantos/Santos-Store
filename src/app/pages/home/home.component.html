@@ -1,0 +1,22 @@
+<section id="product">
+  <div class="container">
+      <div class="d-flex flex-wrap justify-content-center">
+          <div class="col-12">
+              <div class="productHeading text-center">
+                  <h2 class="mb-3 mt-2">Exclusive Products</h2>
+              </div>
+          </div>
+            <div
+              class="container-productbox d-flex flex-wrap justify-content-center align-items-center"
+              *ngFor="let product of products"
+            >
+                  <app-product-box
+                  [product]="product"
+                  (addToCart)="onAddToCart($event)"
+                  >
+                </app-product-box>
+           </div>
+      </div>
+  </div>
+
+</section>
